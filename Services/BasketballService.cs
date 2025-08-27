@@ -66,4 +66,39 @@ public class BasketballService
 
         return lista;
     }
+
+    // 🔹 Actualizar estadística de equipo
+public async Task ActualizarEstadisticaEquipoAsync(ActualizarEquipoReq req)
+{
+    using var conn = new SqlConnection(_connectionString);
+    using var cmd = new SqlCommand("sp_actualizar_estadistica_equipo", conn);
+    cmd.CommandType = CommandType.StoredProcedure;
+
+    cmd.Parameters.AddWithValue("@id_juego", req.IdJuego);
+    cmd.Parameters.AddWithValue("@id_equipo", req.IdEquipo);
+    cmd.Parameters.AddWithValue("@periodo", req.Periodo);
+    cmd.Parameters.AddWithValue("@puntos", req.Puntos);
+    cmd.Parameters.AddWithValue("@faltas", req.Faltas);
+
+    await conn.OpenAsync();
+    await cmd.ExecuteNonQueryAsync();
+}
+
+// 🔹 Actualizar estadística de jugador
+public async Task ActualizarEstadisticaJugadorAsync(ActualizarJugadorReq req)
+{
+    using var conn = new SqlConnection(_connectionString);
+    using var cmd = new SqlCommand("sp_actualizar_estadistica_jugador", conn);
+    cmd.CommandType = CommandType.StoredProcedure;
+
+    cmd.Parameters.AddWithValue("@id_juego", req.IdJuego);
+    cmd.Parameters.AddWithValue("@id_jugador", req.IdJugador);
+    cmd.Parameters.AddWithValue("@puntos", req.Puntos);
+    cmd.Parameters.AddWithValue("@faltas", req.Faltas);
+
+    await conn.OpenAsync();
+    await cmd.ExecuteNonQueryAsync();
+}
+
+
 }

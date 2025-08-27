@@ -36,3 +36,4 @@ C:\Pruebas\Proyecto I\Basketball\BasketballApi\obj\Debug\net9.0\refint\Basketbal
 C:\Pruebas\Proyecto I\Basketball\BasketballApi\obj\Debug\net9.0\BasketballApi.pdb
 C:\Pruebas\Proyecto I\Basketball\BasketballApi\obj\Debug\net9.0\BasketballApi.genruntimeconfig.cache
 C:\Pruebas\Proyecto I\Basketball\BasketballApi\obj\Debug\net9.0\ref\BasketballApi.dll
+C:\Pruebas\Proyecto I\Basketball\BasketballApi\obj\Debug\net9.0\BasketballApi.sourcelink.json

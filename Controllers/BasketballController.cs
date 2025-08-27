@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using BasketballAPI.Services;
+using BasketballAPI.Models;
 
 namespace BasketballAPI.Controllers;
 
@@ -29,4 +30,22 @@ public class BasketballController : ControllerBase
         var data = await _service.GetEstadisticasJugadoresAsync(idJuego);
         return Ok(data);
     }
+
+    // POST api/basketball/equipo
+    [HttpPost("equipo")]
+    public async Task<IActionResult> ActualizarEquipo([FromBody] ActualizarEquipoReq req)
+    {
+        await _service.ActualizarEstadisticaEquipoAsync(req);
+        return Ok(new { message = "Estadística de equipo registrada correctamente" });
+    }
+
+    // POST api/basketball/jugador
+    [HttpPost("jugador")]
+    public async Task<IActionResult> ActualizarJugador([FromBody] ActualizarJugadorReq req)
+    {
+        await _service.ActualizarEstadisticaJugadorAsync(req);
+        return Ok(new { message = "Estadística de jugador registrada correctamente" });
+    }
+
+
 }
